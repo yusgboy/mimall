@@ -17,6 +17,9 @@ export default {
     NavFooter,
     NavHeader,
   },
+  mounted() {
+    
+  },
 };
 </script>
 

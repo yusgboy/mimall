@@ -8,10 +8,12 @@
 export default {
   name: 'App',
   components: {
-  }
+  },
+  mounted() {
+  },
 }
 </script>
 
 <style>
-
+@import './assets/scss/reset.scss'
 </style>

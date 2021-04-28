@@ -1,7 +1,10 @@
 import axios from 'axios'
-axios.defaults.baseURL='/api'
-axios.defaults.timeout=8000;
-axios.interceptors.response.use((response)=>{
+const service = axios.create({
+    baseURL:'/api',
+    timeout:8000,
+
+})
+service.interceptors.response.use((response)=>{
     let res=response.data;
     if(res.status===0){
         return res.data
@@ -11,3 +14,4 @@ axios.interceptors.response.use((response)=>{
         alert(res.msg)
     }
 })
+export default service
