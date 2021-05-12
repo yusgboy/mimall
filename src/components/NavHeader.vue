@@ -35,7 +35,7 @@
                   <li class="product" v-for="(item,index) in phoneList" :key="index">
                     <a :href="'/#/product/'+item.id" target="_blank">
                       <div class="pro-img">
-                        <img :src="item.mainImage" :alt="item.subtitle">
+                        <img v-lazy="item.mainImage" :alt="item.subtitle">
                       </div>
                       <div class="pro-name">{{item.name}}</div>
                       <div class="pro-price">{{item.price|currency}}</div>
@@ -325,6 +325,8 @@ export default {
               border-top: 1px solid #e5e5e5;
               transition: height .5s;
               overflow: hidden;
+              background-color: #ffffff;
+              z-index: 10;
               ul{
                 height: 229px;
                 .product{
@@ -360,7 +362,7 @@ export default {
                   &::before{
                     content:'';
                     position: absolute;
-                    top: 35px;
+                    top: 40px;
                     width: 1px;
                     height: 100px;
                     display: inline-block;

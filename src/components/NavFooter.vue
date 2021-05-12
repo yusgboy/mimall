@@ -1,25 +1,7 @@
 <template>
   <div class="footer">
     <div class="container">
-      <div class="footer-service">
-        <ul>
-          <li>
-            <a href="https://www.mi.com/service/quick-repair"><em class="iconfont icon-weixiu"></em>预约维修服务</a>
-          </li>
-          <li>
-            <a href="https://www.mi.com/service/exchange#back"><em class="iconfont icon-7tiantuihuanhuo"></em>7天无理由退货</a>
-          </li>
-          <li>
-            <a href="https://www.mi.com/service/exchange#back"><em class="iconfont icon-15tianwuliyoutuihuo"></em>15天免费换货</a>
-          </li>
-          <li>
-            <a href="https://www.mi.com/service/buy/Postal%20policy"><em class="iconfont icon-liwu"></em>满69包邮</a>
-          </li>
-          <li>
-            <a href="https://www.mi.com/service/sitelist"><em class="iconfont icon-wangdianchaxun"></em>520余家售后网点</a>
-          </li>
-        </ul>
-      </div>
+      <service-bar></service-bar>
       <div class="footer-links">
         <dl>
           <dt>帮助中心</dt>
@@ -149,6 +131,7 @@
 </template>
 
 <script>
+import ServiceBar from './ServiceBar'
 export default {
   data() {
     return {
@@ -156,7 +139,7 @@ export default {
     }
   },
   components: {
-
+ServiceBar
   },
   methods: {
     wechatShow() {
@@ -173,27 +156,6 @@ export default {
     width: 1226px;
     margin-left: auto;
     margin-right: auto;
-    .footer-service{
-      padding: 27px 0;
-      border-bottom: 1px solid #e0e0e0;
-      ul{
-        li:last-child{
-          border-right: 0;
-        }
-        li{
-          width: 19.8%;
-          display: inline-block;
-          height: 25px;
-          line-height: 25px;
-          text-align: center;
-          font-size: 16px;
-          border-right: 1px solid #e0e0e0;
-          a{
-            color: #616161;
-          }
-        }
-      }
-    }
     .footer-links{
       padding: 40px 0;
       position: relative;
