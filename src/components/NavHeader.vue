@@ -10,12 +10,12 @@
           <a href="">LoT</a>
         </div>
         <div class="topbar-user">
-          <span v-if="userName">{{userName}}</span>
-          <span v-if="!userName" @click="login">登录</span>
+          <span v-if="username">{{username}}</span>
+          <span v-if="!username" @click="login" style="cursor: pointer;">登录</span>
           <span class="sep">|</span>
-          <span>我的订单</span>
+          <span style="cursor: pointer;">我的订单</span>
           <span class="sep">|</span>
-          <span class="my-cart" @click="goToCart"><span class="iconfont-cart"></span>购物车</span>
+          <span class="my-cart" @click="goToCart" style="cursor: pointer;"><span class="iconfont-cart"></span>购物车({{cartCount}})</span>
         </div>
       </div>
     </div>
@@ -180,14 +180,17 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   data() {
     return {
       phoneList:[],
-      userName:'',
     };
   },
   components: {},
+  computed:{
+    ...mapState(['username','cartCount'])
+  },
   filters:{
     currency(val){
       if(!val)return '0.00';
