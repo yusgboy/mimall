@@ -48,6 +48,7 @@
             :total="total"
             :pageSize="pageSize"
             @current-change="handleChange"
+            v-if="list.length"
           >
             
           </el-pagination>

@@ -332,7 +332,7 @@ export default {
         .menu-item {
           height: 42px;
           line-height: 42px;
-          &:hover {
+          &:nth-child(1):hover{
             color: $colorA;
             .children {
               display: block;

@@ -112,55 +112,55 @@
                   <li class="product">
                     <a href="" target="_blank">
                       <div class="pro-img">
-                        <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png" alt="">
+                        <img v-lazy="'/imgs/nav-img/nav-3-1.jpg'" alt="">
                       </div>
-                      <div class="pro-name">小米CC9</div>
-                      <div class="pro-price">1799元</div>
+                      <div class="pro-name">小米壁画电视 65英寸</div>
+                    <div class="pro-price">6999元</div>
                     </a>
                   </li>
                   <li class="product">
                     <a href="" target="_blank">
                       <div class="pro-img">
-                        <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png" alt="">
-                      </div>
-                      <div class="pro-name">小米CC9</div>
-                      <div class="pro-price">1799元</div>
+                      <img v-lazy="'/imgs/nav-img/nav-3-2.jpg'" alt="">
+                    </div>
+                    <div class="pro-name">小米全面屏电视E55A</div>
+                    <div class="pro-price">1999元</div>
+                    </a>
+                  </li>
+                  <li class="product">
+                    <a href="" target="_blank">
+                       <div class="pro-img">
+                      <img v-lazy="'/imgs/nav-img/nav-3-3.png'" alt="">
+                    </div>
+                    <div class="pro-name">小米电视4A 32英寸</div>
+                    <div class="pro-price">699元</div>
                     </a>
                   </li>
                   <li class="product">
                     <a href="" target="_blank">
                       <div class="pro-img">
-                        <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png" alt="">
-                      </div>
-                      <div class="pro-name">小米CC9</div>
-                      <div class="pro-price">1799元</div>
+                      <img v-lazy="'/imgs/nav-img/nav-3-4.jpg'" alt="">
+                    </div>
+                    <div class="pro-name">小米电视4A 55英寸</div>
+                    <div class="pro-price">1799元</div>
                     </a>
                   </li>
                   <li class="product">
                     <a href="" target="_blank">
                       <div class="pro-img">
-                        <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png" alt="">
-                      </div>
-                      <div class="pro-name">小米CC9</div>
-                      <div class="pro-price">1799元</div>
+                      <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'" alt="">
+                    </div>
+                    <div class="pro-name">小米电视4A 65英寸</div>
+                    <div class="pro-price">2699元</div>
                     </a>
                   </li>
                   <li class="product">
                     <a href="" target="_blank">
                       <div class="pro-img">
-                        <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png" alt="">
-                      </div>
-                      <div class="pro-name">小米CC9</div>
-                      <div class="pro-price">1799元</div>
-                    </a>
-                  </li>
-                  <li class="product">
-                    <a href="" target="_blank">
-                      <div class="pro-img">
-                        <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png" alt="">
-                      </div>
-                      <div class="pro-name">小米CC9</div>
-                      <div class="pro-price">1799元</div>
+                      <img v-lazy="'/imgs/nav-img/nav-3-6.png'" alt="">
+                    </div>
+                    <div class="pro-name">查看全部</div>
+                    <div class="pro-price">查看全部</div>
                     </a>
                   </li>
                 </ul>
@@ -309,7 +309,7 @@ export default {
         ul{
           li{
             display: inline-block;
-            &:hover{
+            &:nth-child(2n-1):hover{
               .children{
                 height: 229px;
                 opacity: 1;
