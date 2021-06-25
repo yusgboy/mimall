@@ -1,4 +1,5 @@
 import Mock from 'mockjs'
+import data from './pca-code.json'
 Mock.mock('/api/topbarNavMenu',{
     topbarMenu:[
         {
@@ -51,3 +52,4 @@ Mock.mock('/api/topbarNavMenu',{
         },
     ]
 })
+Mock.mock('/api/getProvinceCityDistrict',data)

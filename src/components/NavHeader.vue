@@ -12,8 +12,9 @@
         <div class="topbar-user">
           <span v-if="username">{{username}}</span>
           <span v-if="!username" @click="login" style="cursor: pointer;">登录</span>
+          <span v-if="username" @click="logout" style="cursor: pointer;">退出</span>
           <span class="sep">|</span>
-          <span style="cursor: pointer;">我的订单</span>
+          <span style="cursor: pointer;" @click="goOrderList">我的订单</span>
           <span class="sep">|</span>
           <span class="my-cart" @click="goToCart" style="cursor: pointer;"><span class="iconfont-cart"></span>购物车({{cartCount}})</span>
         </div>
@@ -22,8 +23,7 @@
     <div class="nav-header">
       <div class="container">
         <div class="header-logo">
-          <a href="/#/index.html">
-
+          <a href="/#/index">
           </a>
         </div>
         <div class="header-nav">
@@ -180,7 +180,8 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState} from 'vuex';
+import {Message} from 'element-ui'
 export default {
   data() {
     return {
@@ -215,10 +216,33 @@ export default {
     },
     goToCart(){
       this.$router.push('/cart')
+    },
+        getCartCount(){
+      this.$axios.get('/carts/products/sum').then((res=0)=>{
+        this.$store.dispatch('getCartCount',res);
+      })
+    },
+    logout(){
+      this.$axios.post('/user/logout').then(()=>{
+        Message.success('退出成功');
+        this.$cookies.set('userId','',{expires:'-1'});
+        this.$store.dispatch('saveUserName','');
+        this.$store.dispatch('getCartCount',0);
+      });
+
+    },
+    goOrderList(){
+      this.$router.push({
+        path:'/order/list'
+      })
     }
   },
   mounted(){
     this.getProductList();
+    let params = this.$route.params;
+    if(params&&params.from=='login'){
+      this.getCartCount();
+    }
   }
 };
 </script>
@@ -229,7 +253,7 @@ export default {
 @import '../assets/scss/config.scss';
 .header {
   .nav-topbar {
-    height: 40px;
+    height: 40px; 
     line-height: 40px;
     background-color: #333333;
     color: #b0b0b0;
@@ -279,24 +303,6 @@ export default {
       line-height: 100px;
       @include flex(flex-start);
       position: relative;
-      .header-logo{
-        display: inline-block;
-        width: 62px;
-        height: 56px;
-        a{
-          display: inline-block;
-          width: 56px;
-          height: 56px;
-          &::before{
-            background: url('https://s02.mifile.cn/assets/static/image/logo-mi2.png') no-repeat center;
-            content: '';
-            display: inline-block;
-            background-size: 56px;
-            width: 56px;
-            height: 56px;
-          }
-        }
-      }
       .header-nav{
         font-size: 16px;
         padding-left: 172px;

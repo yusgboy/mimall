@@ -126,7 +126,7 @@
                   <login-sns></login-sns>
                 </div>
                 <div class="login-form-content-right">
-                  <form action="">
+                  <form action="" @submit.prevent="">
                     <div class="mi-control">
                       <div class="mi-select">
                         <div class="mi-select-selection">
@@ -206,7 +206,7 @@
                         </div>
                       </div>
                     </div>
-                    <button class="mi-button">注册</button>
+                    <button class="mi-button" @click="registered">注册</button>
                     <div class="mi-form-actions">
                       <div class="mi-form-action mi-form-action-start">
                         <a href="">收不到验证码？</a>
@@ -264,9 +264,23 @@ export default {
         username,
         password
       }).then((res)=>{
-        this.$cookies.set('userId',res.id,{expires:'1M'});
+        this.$cookies.set('userId',res.id,{expires:'Session'});
         this.$store.dispatch('saveUserName',res.username);
-        this.$router.push('/index');
+        this.$router.push({
+          name:'index',
+          params:{
+            from:'login'
+          }
+        });
+      })
+    },
+    registered(){
+      this.$axios.post('/user/register',{
+        username:'yusg',
+        password:'yusg',
+        email:'yusg@163.com'
+      }).then(()=>{
+
       })
     }
   }

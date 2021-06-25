@@ -5,13 +5,14 @@ import axios from './api/axios'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookies from 'vue-cookies'
 import store from './store'
+import './assets/scss/element-variables.scss'
 Vue.config.productionTip = false;
 Vue.prototype.$axios = axios;
 Vue.use(VueLazyLoad,{
   loading:'/imgs/loading-svg/loading-bars.svg'
 });
 Vue.use(VueCookies);
-const mock=false;
+const mock=true;
 if(mock){
   require('./mock/mock.js')
 }
