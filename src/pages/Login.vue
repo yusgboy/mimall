@@ -116,7 +116,7 @@
                     <input type="button" class="mi-button" @click="login" value="登入">
                     <div class="mi-form-actions">
                       <div class="mi-form-action mi-form-action-start">
-                        <a href="">忘记密码？</a>
+                        <a href="">未开发好的注册接口，请用账户yusg密码yusg进行登入</a>
                       </div>
                       <div class="mi-form-action mi-form-action-end">
                         <a href="">手机号登入</a>
